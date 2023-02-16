@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using SpiritResources;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -29,6 +30,10 @@ namespace UI {
             var rectTransform = _content.GetComponent<RectTransform>();
             var doAnchorPosY = rectTransform.DOAnchorPosY(-rectTransform.rect.height, 1f);
             doAnchorPosY.OnComplete(() => { _content.gameObject.SetActive(false); });
+        }
+
+        public void UpdateResource(SpiritResourceType type, int newNumber) {
+            
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace UI.BreatheGame {
 
-    public class MiniGameUI : MonoBehaviour {
+    public class MiniGameUI : ContentUI {
 
         private bool _isPlaying;
 
@@ -15,12 +15,6 @@ namespace UI.BreatheGame {
 
         [SerializeField]
         private float _sliderSpeed = 3f;
-
-        [SerializeField]
-        private Button _spawnButton;
-
-        [SerializeField]
-        private Button _clearButton;
 
         [SerializeField]
         private Button _startGameButton;
@@ -35,8 +29,6 @@ namespace UI.BreatheGame {
             Assert.IsNotNull(_breathGameAreaUI);
             Assert.IsNotNull(_slider);
 
-            _spawnButton.onClick.AddListener(Spawn);
-            _clearButton.onClick.AddListener(Clear);
             _startGameButton.onClick.AddListener(StartGame);
             _pickButton.onClick.AddListener(PickBlock);
         }
@@ -97,8 +89,8 @@ namespace UI.BreatheGame {
 
 
         private void OnDestroy() {
-            _spawnButton.onClick.RemoveAllListeners();
-            _clearButton.onClick.RemoveAllListeners();
+            _startGameButton.onClick.RemoveAllListeners();
+            _pickButton.onClick.RemoveAllListeners();
         }
     }
 

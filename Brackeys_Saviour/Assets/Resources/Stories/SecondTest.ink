@@ -7,7 +7,7 @@
 How are you?
     * [Good]
     * [Bad]
-        Why so?
+        Why so? #GameTag: Money
             * * [Because]
             * * [Who knows]
         - - Oh boy

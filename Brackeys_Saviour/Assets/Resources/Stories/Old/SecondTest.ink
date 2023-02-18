@@ -9,8 +9,9 @@ How are you?
     * [Bad]
         Why so? #GameTag: Money
             * * [Because]
+            -> DONE
             * * [Who knows]
-        - - Oh boy
+        - - Oh boy #Money: -10
     * [Not your buisness]
     
 

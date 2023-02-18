@@ -4,8 +4,10 @@ using System.Linq;
 using Events.GameEvents;
 using Ink.Runtime;
 using ModestTree;
+using SpiritResources;
 using TMPro;
 using UI;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -43,8 +45,15 @@ namespace Events.UI {
         [SerializeField]
         private GameObject _timerPanel;
 
+        private const string MoneyTag = "Money";
+
+        private const string VolunteersTag = "Volunteers";
+
+        private const string HappinessTag = "Happiness";
+
 
         public Action OnEventFinished = delegate { };
+        public Action<SpiritResourceType, int> OnResourceTagInput = delegate { };
 
         private void Start() {
             _choiceButtons = GetComponentsInChildren<ChoiceButton>(true).ToList();
@@ -99,20 +108,6 @@ namespace Events.UI {
             ContinueStory();
         }
 
-        public void UpdateUiForEvent(BaseGameEvent baseGameEvent) {
-            CleanUpOldEvent();
-            baseGameEvent.GetStory();
-            StartStory();
-        }
-
-        private void CleanUpOldEvent() {
-            throw new NotImplementedException();
-        }
-
-        private void StartStory() {
-            throw new NotImplementedException();
-        }
-
         public void HandleStory(TextAsset storyJson) {
             ShowContent();
             _story = new Story(storyJson.text);
@@ -138,10 +133,43 @@ namespace Events.UI {
             if (_story.canContinue) {
                 _mainStoryText.text = _story.Continue();
                 _currentChoices = _story.currentChoices;
+                ProceedGameTags();
                 ProceedChoices();
             } else {
                 ExitDialogue();
             }
+        }
+
+        private void ProceedGameTags() {
+            foreach (string tag in _story.currentTags) {
+                string[] splitTag = tag.Split(":");
+
+                if (splitTag.Length != 2) {
+                    Debug.LogError("Cant parse tag properly!");
+                }
+                string tagKey = splitTag[0].Trim();
+                string tagValue = splitTag[1].Trim();
+
+                switch (tagKey) {
+                    case MoneyTag:
+                        HandleTagChange(SpiritResourceType.Money, int.Parse(tagValue));
+                        Debug.Log("Money game tag: " + tagValue);
+                        break;
+                    case VolunteersTag:
+                        Debug.Log("Volunteers game tag : " + tagValue);
+                        break;
+                    case HappinessTag:
+                        Debug.Log("Happiness game tag : " + tagValue);
+                        break;
+                    default:
+                        Debug.Log("Not supported or not a game tag : " + tagKey);
+                        break;
+                }
+            }
+        }
+
+        private void HandleTagChange(SpiritResourceType type, int value) {
+            OnResourceTagInput(type, value);
         }
 
         private void ProceedChoices() {
@@ -155,30 +183,6 @@ namespace Events.UI {
 
             for (int i = 0; i < _choiceButtons.Count; i++) {
                 if (_currentChoices.Count > i) {
-                    // var tagsForContentAtPath = _story.TagsForContentAtPath(_currentChoices[i].pathStringOnChoice);
-                    // Debug.Log("There is a choice tag: " + tagsForContentAtPath.Count + " with pathStringOnChoice");
-                    //
-                    // if (tagsForContentAtPath.Count > 0) {
-                    //     Debug.Log("TAG: " + tagsForContentAtPath[0]);
-                    // }
-                    //
-                    // var tagsForContentAtPath1 = _story.TagsForContentAtPath(_currentChoices[i].targetPath.componentsString);
-                    // Debug.Log("There is a choice tag: " + tagsForContentAtPath1.Count + " with componentsString");
-                    //
-                    // if (tagsForContentAtPath1.Count > 0) {
-                    //     Debug.Log("TAG: " + tagsForContentAtPath1[0]);
-                    // }
-                    //
-                    // var tagsForContentAtPath2 = _story.TagsForContentAtPath(_currentChoices[i].sourcePath);
-                    // Debug.Log("There is a choice tag: " + tagsForContentAtPath2.Count + " with sourcePath");
-                    //
-                    // if (tagsForContentAtPath2.Count > 0) {
-                    //     Debug.Log("TAG: " + tagsForContentAtPath2[0]);
-                    // }
-
-                    // _story.currentTags
-
-
                     _choiceButtons[i].gameObject.SetActive(true);
                     _choiceButtons[i].ChangeButtonText(_currentChoices[i].text);
                 } else {
@@ -193,13 +197,13 @@ namespace Events.UI {
             }
             _continueButton.gameObject.SetActive(true);
             TurnOffTimer();
-            
         }
 
         private void TurnOnTimer() {
             _isTimerActive = true;
             _timerPanel.gameObject.SetActive(true);
         }
+
         private void TurnOffTimer() {
             _isTimerActive = false;
             _timerPanel.gameObject.SetActive(false);

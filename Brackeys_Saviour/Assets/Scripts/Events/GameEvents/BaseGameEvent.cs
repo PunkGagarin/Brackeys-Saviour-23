@@ -37,6 +37,10 @@ namespace Events.GameEvents {
         public abstract void Apply();
 
         public abstract void Reject();
+
+        public void GetStory() {
+            throw new System.NotImplementedException();
+        }
     }
 
     public enum EventReactionType {

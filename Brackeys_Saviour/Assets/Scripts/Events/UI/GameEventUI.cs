@@ -162,7 +162,7 @@ namespace Events.UI {
                         Debug.Log("Happiness game tag : " + tagValue);
                         break;
                     default:
-                        Debug.Log("Not supported or not a game tag : " + tagKey);
+                        // Debug.Log("Not supported or not a game tag : " + tagKey);
                         break;
                 }
             }

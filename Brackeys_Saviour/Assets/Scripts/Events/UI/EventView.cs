@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using Events.GameEvents;
 using TMPro;
+using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Events.UI {
 
-    public class EventView : MonoBehaviour {
+    public class EventView : ContentUI {
 
         private const string DefaultAcceptText = "Accept";
         private const string DefaultRejectText = "Reject";
 
         private BaseGameEvent _currentEvent;
 
-        private int _currentEventTimer;
-
-        [SerializeField]
-        private GameObject _contentPanel;
+        // private int _currentEventTimer;
 
         [SerializeField]
         private TextMeshProUGUI _eventText;
@@ -29,22 +28,22 @@ namespace Events.UI {
         private Button _rejectButton;
 
         [SerializeField]
-        private Button _okayButton;
+        private Button _afterEventButton;
 
-        [Header("Timer")]
-        [SerializeField]
-        private TextMeshProUGUI _timerText;
+        // [Header("Timer")]
+        // [SerializeField]
+        // private TextMeshProUGUI _timerText;
 
-        [SerializeField]
-        private int _eventTimer;
+        // [SerializeField]
+        // private int _eventTimer;
 
-        private List<EventButton> _eventButtons;
+        // private List<EventButton> _eventButtons;
 
 
         private void Awake() {
             _acceptButton.onClick.AddListener(AcceptEvent);
             _rejectButton.onClick.AddListener(RejectEvent);
-            _okayButton.onClick.AddListener(HideContent);
+            _afterEventButton.onClick.AddListener(HideContent);
         }
 
 
@@ -79,19 +78,10 @@ namespace Events.UI {
                 _rejectButton.GetComponentInChildren<TextMeshProUGUI>().text = baseGameEvent.rejectButtonText;
             }
 
-            if (_timerText != null) {
-                _currentEventTimer = _eventTimer;
-                StartCoroutine(StartEventTimer());
-            }
-        }
-
-        private void ShowContent() {
-            _contentPanel.SetActive(true);
-        }
-
-        private void HideContent() {
-            _okayButton.gameObject.SetActive(false);
-            _contentPanel.SetActive(false);
+            // if (_timerText != null) {
+            //     _currentEventTimer = _eventTimer;
+            //     StartCoroutine(StartEventTimer());
+            // }
         }
 
         private void ShowButtons() {
@@ -109,14 +99,14 @@ namespace Events.UI {
         }
 
 
-        private IEnumerator StartEventTimer() {
-            while (_currentEventTimer > 0) {
-                yield return new WaitForSeconds(1f);
-                _currentEventTimer--;
-                _timerText.text = _currentEventTimer.ToString();
-            }
-            ChooseRandomOption();
-        }
+        // private IEnumerator StartEventTimer() {
+        //     while (_currentEventTimer > 0) {
+        //         yield return new WaitForSeconds(1f);
+        //         _currentEventTimer--;
+        //         _timerText.text = _currentEventTimer.ToString();
+        //     }
+        //     ChooseRandomOption();
+        // }
 
         private void ChooseRandomOption() {
             int rnd = Random.Range(0, 2);
@@ -133,7 +123,7 @@ namespace Events.UI {
         }
 
         private void ShowOkayButton() {
-            _okayButton.gameObject.SetActive(true);
+            _afterEventButton.gameObject.SetActive(true);
         }
 
         private void OnDestroy() {

@@ -12,6 +12,9 @@ namespace UI.BreatheGame {
         private BreathGameAreaUI _breathGameAreaUI;
 
         private Slider _slider;
+        
+        [SerializeField]
+        private SliderArrow _sliderArrow;
 
         [SerializeField]
         private float _sliderSpeed = 3f;
@@ -49,12 +52,20 @@ namespace UI.BreatheGame {
         }
 
         private void PickBlock() {
+            if (_sliderArrow.EntersBlockPosition) {
+                _sliderArrow.BreatheGameBlock.gameObject.SetActive(false);
+                _sliderArrow.BreatheGameBlock = null;
+            }
+
+            /*
             var breatheGameBlock = _breathGameAreaUI.PickBlock(_slider.value, _slider.handleRect.sizeDelta.x/2);
+
             if (breatheGameBlock != null) {
                 breatheGameBlock.gameObject.SetActive(false);
             } else {
                 Debug.Log("there is no block!");
             }
+            */
         }
 
         private IEnumerator MoveSlider() {

@@ -23,8 +23,8 @@ namespace UI.BreatheGame {
         private Button _pickButton;
 
         private void Awake() {
-            _breathGameAreaUI = GetComponentInChildren<BreathGameAreaUI>();
-            _slider = GetComponentInChildren<Slider>();
+            _breathGameAreaUI = GetComponentInChildren<BreathGameAreaUI>(true);
+            _slider = GetComponentInChildren<Slider>(true);
 
             Assert.IsNotNull(_breathGameAreaUI);
             Assert.IsNotNull(_slider);

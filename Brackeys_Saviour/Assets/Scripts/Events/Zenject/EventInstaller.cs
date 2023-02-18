@@ -12,14 +12,14 @@ namespace Events.Zenject {
         private EventController _eventController;
 
         [SerializeField]
-        private EventView _eventView;
+        private GameEventUI _eventView;
 
         public override void InstallBindings() {
             Container.Bind<BasePoolImpl>()
                 .FromNew()
                 .AsSingle();
 
-            Container.Bind<EventView>()
+            Container.Bind<GameEventUI>()
                 .FromInstance(_eventView)
                 .AsSingle();
 

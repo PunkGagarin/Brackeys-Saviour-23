@@ -19,6 +19,7 @@ namespace UI {
         public virtual void HideContent() {
             _content.SetActive(false);
         }
+        
     }
 
 }

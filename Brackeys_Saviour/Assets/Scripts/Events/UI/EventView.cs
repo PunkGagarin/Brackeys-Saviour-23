@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Events.GameEvents;
+﻿using Events.GameEvents;
 using TMPro;
 using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Events.UI {
@@ -41,9 +38,9 @@ namespace Events.UI {
 
 
         private void Awake() {
-            _acceptButton.onClick.AddListener(AcceptEvent);
-            _rejectButton.onClick.AddListener(RejectEvent);
-            _afterEventButton.onClick.AddListener(HideContent);
+            // _acceptButton.onClick.AddListener(AcceptEvent);
+            // _rejectButton.onClick.AddListener(RejectEvent);
+            // _afterEventButton.onClick.AddListener(HideContent);
         }
 
 
@@ -85,17 +82,17 @@ namespace Events.UI {
         }
 
         private void ShowButtons() {
-            _acceptButton.gameObject.SetActive(true);
-            _rejectButton.gameObject.SetActive(true);
-            ShowOkayButton();
+            // _acceptButton.gameObject.SetActive(true);
+            // _rejectButton.gameObject.SetActive(true);
+            // ShowOkayButton();
         }
 
         private void HideButtons() {
-            StopAllCoroutines();
-            SetDefaultButtonsText();
-            _acceptButton.gameObject.SetActive(false);
-            _rejectButton.gameObject.SetActive(false);
-            ShowOkayButton();
+            // StopAllCoroutines();
+            // SetDefaultButtonsText();
+            // _acceptButton.gameObject.SetActive(false);
+            // _rejectButton.gameObject.SetActive(false);
+            // ShowOkayButton();
         }
 
 
@@ -109,26 +106,26 @@ namespace Events.UI {
         // }
 
         private void ChooseRandomOption() {
-            int rnd = Random.Range(0, 2);
-            if (rnd == 0) {
-                AcceptEvent();
-            } else {
-                RejectEvent();
-            }
+            // int rnd = Random.Range(0, 2);
+            // if (rnd == 0) {
+            //     AcceptEvent();
+            // } else {
+            //     RejectEvent();
+            // }
         }
 
         private void SetDefaultButtonsText() {
-            _acceptButton.GetComponentInChildren<TextMeshProUGUI>().text = DefaultAcceptText;
-            _acceptButton.GetComponentInChildren<TextMeshProUGUI>().text = DefaultRejectText;
+            // _acceptButton.GetComponentInChildren<TextMeshProUGUI>().text = DefaultAcceptText;
+            // _acceptButton.GetComponentInChildren<TextMeshProUGUI>().text = DefaultRejectText;
         }
 
         private void ShowOkayButton() {
-            _afterEventButton.gameObject.SetActive(true);
+            // _afterEventButton.gameObject.SetActive(true);
         }
 
         private void OnDestroy() {
-            _acceptButton.onClick.RemoveAllListeners();
-            _rejectButton.onClick.RemoveAllListeners();
+            // _acceptButton.onClick.RemoveAllListeners();
+            // _rejectButton.onClick.RemoveAllListeners();
         }
     }
 

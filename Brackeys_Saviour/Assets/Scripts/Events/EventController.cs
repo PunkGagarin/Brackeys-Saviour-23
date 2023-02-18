@@ -2,6 +2,7 @@
 using Events.Pools;
 using Events.UI;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Events {
@@ -12,10 +13,21 @@ namespace Events {
         private BasePoolImpl _gameEventPool;
 
         [Inject]
-        private EventView _eventView;
+        private GameEventUI _eventView;
+
+        [SerializeField]
+        private Button _testButton;
+
+        [SerializeField]
+        private TextAsset _storyTest;
 
         private void Awake() {
             _gameEventPool.InitPool();
+            _testButton.onClick.AddListener(TestStory);
+        }
+
+        private void TestStory() {
+            _eventView.TryFirstStory(_storyTest);
         }
 
         public void EventHandle(BaseGameEvent gameEvent) {

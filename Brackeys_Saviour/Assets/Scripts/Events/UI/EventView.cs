@@ -106,7 +106,7 @@ namespace Events.UI {
         // }
 
         private void ChooseRandomOption() {
-            // int rnd = Random.Range(0, 2);
+            int rnd = Random.Range(0, 2);
             // if (rnd == 0) {
             //     AcceptEvent();
             // } else {

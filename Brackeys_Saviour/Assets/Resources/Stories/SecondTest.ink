@@ -1,4 +1,5 @@
 # EventName: How are you?
+# TestTag: MyTag
 
 -> AnotherStory
 

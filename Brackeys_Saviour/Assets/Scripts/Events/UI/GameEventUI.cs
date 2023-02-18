@@ -11,15 +11,14 @@ using UnityEngine;
 namespace Events.UI {
 
     public class GameEventUI : ContentUI {
+        private const string Eventname = "EventName";
 
         private Story _story;
 
         private List<Choice> _currentChoices;
 
-        [SerializeField]
         private ContinueButton _continueButton;
 
-        [SerializeField]
         private List<ChoiceButton> _choiceButtons;
 
         [SerializeField]
@@ -76,6 +75,14 @@ namespace Events.UI {
         public void TryFirstStory(TextAsset storyJson) {
             ShowContent();
             _story = new Story(storyJson.text);
+            var storyGlobalTags = _story.globalTags;
+            var EventNameTag = storyGlobalTags.FirstOrDefault(el => el.Contains(Eventname));
+            if (EventNameTag != null) {
+                // var eventNameValue = EventNameTag.Split(":")[1].Trim();
+                _headerText.text = EventNameTag.Split(":")[1].Trim();
+            } else {
+                Debug.LogError(new Exception("There is no global tag with EventName!!"));
+            }
             ContinueStory();
         }
 

@@ -761,8 +761,8 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 48
+  m_fontSizeMin: 22
+  m_fontSizeMax: 30
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -1480,9 +1480,6 @@ MonoBehaviour:
   _timerImage: {fileID: 1827252726}
   _timeToDecide: 25
   _timerPanel: {fileID: 669901400}
-  _gameTags:
-  - Money
-  - Volunteers
 --- !u!1 &417421925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 417421926}
   - component: {fileID: 417421927}
+  - component: {fileID: 417421928}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -1532,6 +1530,19 @@ MonoBehaviour:
   _eventTimeMin: 3
   _eventTimeMax: 5
   _spawnPopupBorderSize: 100
+--- !u!114 &417421928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417421925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5153516e2371a3d46ac1d0274bf0a4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _happinessView: {fileID: 0}
 --- !u!1 &447376676
 GameObject:
   m_ObjectHideFlags: 0

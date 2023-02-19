@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Events.GameEvents;
 using Ink.Runtime;
 using ModestTree;
 using SpiritResources;
 using TMPro;
 using UI;
 using UI.BreatheGame;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -40,6 +38,9 @@ namespace Events.UI {
         [SerializeField]
         private TextMeshProUGUI _headerText;
 
+        [SerializeField]
+        private Image _eventImage;
+
         [Header("Timer")]
         [SerializeField]
         private Image _timerImage;
@@ -55,12 +56,21 @@ namespace Events.UI {
         private const string VolunteersTag = "Volunteers";
 
         private const string HappinessTag = "Happiness";
-        
+
         private const string MiniGameTag = "MiniGame";
 
 
         public Action OnEventFinished = delegate { };
         public Action<SpiritResourceType, int> OnResourceTagInput = delegate { };
+
+        protected override void Awake() {
+            base.Awake();
+            Assert.IsNotNull(_mainStoryText);
+            Assert.IsNotNull(_headerText);
+            Assert.IsNotNull(_eventImage);
+            Assert.IsNotNull(_timerImage);
+            Assert.IsNotNull(_timerPanel);
+        }
 
         private void Start() {
             _choiceButtons = GetComponentsInChildren<ChoiceButton>(true).ToList();
@@ -132,6 +142,7 @@ namespace Events.UI {
                 _headerText.text = "Here is my story...";
                 Debug.LogError(new Exception("There is no global tag with EventName!!"));
             }
+            _eventImage.sprite = EventImageFactory.GetProperImageForStory(_headerText.text);
         }
 
         private void ContinueStory() {
@@ -173,10 +184,10 @@ namespace Events.UI {
                     case HappinessTag:
                         Debug.Log("Happiness game tag : " + tagValue);
                         HandleTagChange(SpiritResourceType.Happiness, int.Parse(tagValue));
-                        break; 
+                        break;
                     case MiniGameTag:
                         _miniGameUI.ShowContent();
-                        break;  
+                        break;
                     default:
                         // Debug.Log("Not supported or not a game tag : " + tagKey);
                         break;

@@ -1411,6 +1411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainStoryText: {fileID: 181917400}
   _headerText: {fileID: 1244359800}
+  _eventImage: {fileID: 1623071421}
   _timerImage: {fileID: 1827252726}
   _timeToDecide: 25
   _timerPanel: {fileID: 669901400}

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5665977676115431970}
   - component: {fileID: 5665977676115431971}
   - component: {fileID: -7924780776127916382}
+  - component: {fileID: 7768555160418471894}
   m_Layer: 5
   m_Name: BreathCatchBlock
-  m_TagString: Untagged
+  m_TagString: BreathCatchBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.14653791, g: 0.8396226, b: 0.15934633, a: 1}
+  m_Color: {r: 0.21176471, g: 0.10980392, b: 0.6745098, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -89,3 +90,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4006540375c944df8d7b48290aef499d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7768555160418471894
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665977676115431997}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.596336, y: 33.49286, z: 1}
+  m_Center: {x: 9.798168, y: 0.042266846, z: 0}

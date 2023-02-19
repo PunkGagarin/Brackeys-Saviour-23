@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using Zenject.Asteroids;
 
 namespace UI.BreatheGame {
 
@@ -23,7 +23,11 @@ namespace UI.BreatheGame {
             startVal = _rectTransform.anchoredPosition.x;
             endVal = startVal + width;
             Debug.Log($"new block values start: {startVal}, end: {endVal}, width: {width}");
+            
+            var collider = gameObject.GetComponent<BoxCollider>();
+            var rectTransform = gameObject.GetComponent<RectTransform>();
+            collider.size = new Vector3(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y, 0);
+            collider.center = new Vector3(rectTransform.sizeDelta.x / 2, 0, 0);
         }
     }
-
 }

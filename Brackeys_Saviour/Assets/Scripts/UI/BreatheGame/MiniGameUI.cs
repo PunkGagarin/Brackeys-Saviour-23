@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -24,8 +25,11 @@ namespace UI.BreatheGame {
 
         [SerializeField]
         private Button _pickButton;
+        
+        public Action<bool> OnGameFinish = delegate {  };
 
-        private void Awake() {
+        protected override void Awake() {
+            base.Awake();
             _breathGameAreaUI = GetComponentInChildren<BreathGameAreaUI>(true);
             _slider = GetComponentInChildren<Slider>(true);
 
@@ -34,6 +38,12 @@ namespace UI.BreatheGame {
 
             _startGameButton.onClick.AddListener(StartGame);
             _pickButton.onClick.AddListener(PickBlock);
+        }
+        
+        
+        private void OnDestroy() {
+            _startGameButton.onClick.RemoveAllListeners();
+            _pickButton.onClick.RemoveAllListeners();
         }
 
         private void Spawn() {
@@ -48,6 +58,10 @@ namespace UI.BreatheGame {
             _isPlaying = true;
 
             _slider.value = 0;
+            
+            _startGameButton.gameObject.SetActive(false);
+            _pickButton.gameObject.SetActive(true);
+            
             StartCoroutine(MoveSlider());
         }
 
@@ -98,11 +112,29 @@ namespace UI.BreatheGame {
             StartCoroutine(MoveSlider());
         }
 
-
-        private void OnDestroy() {
-            _startGameButton.onClick.RemoveAllListeners();
-            _pickButton.onClick.RemoveAllListeners();
+        public override void ShowContent() {
+            base.ShowContent();
+            _pickButton.gameObject.SetActive(false);
+            _startGameButton.gameObject.SetActive(true);
         }
+
+        public override void HideContent() {
+            _pickButton.gameObject.SetActive(false);
+            _startGameButton.gameObject.SetActive(true);
+            base.HideContent();
+        }
+
+        public void LoseMiniGame() {
+            OnGameFinish.Invoke(false);
+            Debug.Log("we lost mini game!");
+        }
+        
+        public void WinMiniGame() {
+            OnGameFinish.Invoke(true);
+            Debug.Log("we have won!");
+        }
+
+
     }
 
 }

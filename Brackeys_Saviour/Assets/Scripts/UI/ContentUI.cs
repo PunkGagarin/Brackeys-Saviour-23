@@ -7,7 +7,7 @@ namespace UI {
 
         protected GameObject _content;
 
-        private void Awake() {
+        protected virtual void Awake() {
             _content = transform.Find("Content").gameObject;
             Assert.IsNotNull(_content);
         }

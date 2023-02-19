@@ -28,7 +28,7 @@ namespace SpiritResources {
             Assert.IsNotNull(_moneyView);
             Assert.IsNotNull(_volunteersView);
             Assert.IsNotNull(_happinessView);
-            
+
             _views.Add(SpiritResourceType.Money, _moneyView);
             _views.Add(SpiritResourceType.Volunteers, _volunteersView);
             _views.Add(SpiritResourceType.Happiness, _happinessView);
@@ -48,7 +48,8 @@ namespace SpiritResources {
         }
 
         private void HandleResourceChange(SpiritResourceType type, int value) {
-            Debug.Log($"Resource of type {type} has changed with {value} value");
+            //due to specific ink work we can have -10 or 10, so in both ways we can call only Add func
+            AddResource(type, value);
         }
 
         public bool IsEnoughResource(SpiritResourceType type, int number) {
@@ -64,7 +65,7 @@ namespace SpiritResources {
         }
 
         public int GetCurrentResource(SpiritResourceType type) {
-            return  _resources[type].GetCurrentResource();
+            return _resources[type].GetCurrentResource();
         }
     }
 

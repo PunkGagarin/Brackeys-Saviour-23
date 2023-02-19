@@ -837,7 +837,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 591447347}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2492,7 +2492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &591447347
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2505,6 +2505,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 824931643}
   - {fileID: 1789634349}
   - {fileID: 1623071420}
   - {fileID: 181917399}
@@ -2567,7 +2568,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 591447347}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &613520025
 GameObject:
@@ -2789,7 +2790,7 @@ RectTransform:
   - {fileID: 1827252725}
   - {fileID: 1360349344}
   m_Father: {fileID: 591447347}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3424,12 +3425,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 25577234}
-  m_Father: {fileID: 1239013712}
-  m_RootOrder: 1
+  m_Father: {fileID: 591447347}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -316.9967, y: -122.000916}
+  m_AnchoredPosition: {x: 56, y: 0}
   m_SizeDelta: {x: 477.83, y: 163.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &824931644
@@ -3452,7 +3453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d4bd31fb37a614c9c55f9872d0ef52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sliderArrow: {fileID: 0}
+  _sliderArrow: {fileID: 2041757840}
   _sliderSpeed: 2
   _startGameButton: {fileID: 772253871}
   _pickButton: {fileID: 789836108}
@@ -4255,7 +4256,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 742477793}
-  - {fileID: 824931643}
   - {fileID: 1259072697}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -4296,7 +4296,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 591447347}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4431,7 +4431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1263051411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5420,7 +5420,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 591447347}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5961,7 +5961,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 591447347}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6042,7 +6042,7 @@ RectTransform:
   - {fileID: 922481945}
   - {fileID: 8838505592011620673}
   m_Father: {fileID: 591447347}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6961,7 +6961,7 @@ Canvas:
   m_GameObject: {fileID: 2088004773}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -7720,9 +7720,9 @@ RectTransform:
   m_Father: {fileID: 1818916194}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 331.065, y: -32.34}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 644.13, y: 54.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8838505592011620674

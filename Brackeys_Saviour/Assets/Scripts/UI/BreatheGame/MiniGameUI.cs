@@ -27,6 +27,9 @@ namespace UI.BreatheGame {
         private Button _pickButton;
         
         public Action<bool> OnGameFinish = delegate {  };
+        
+        public Action OnHit = delegate {  };
+        public Action OnMiss = delegate {  };
 
         protected override void Awake() {
             base.Awake();
@@ -69,17 +72,11 @@ namespace UI.BreatheGame {
             if (_sliderArrow.EntersBlockPosition) {
                 _sliderArrow.BreatheGameBlock.gameObject.SetActive(false);
                 _sliderArrow.BreatheGameBlock = null;
+                OnHit?.Invoke();
+                return;
             }
-
-            /*
-            var breatheGameBlock = _breathGameAreaUI.PickBlock(_slider.value, _slider.handleRect.sizeDelta.x/2);
-
-            if (breatheGameBlock != null) {
-                breatheGameBlock.gameObject.SetActive(false);
-            } else {
-                Debug.Log("there is no block!");
-            }
-            */
+            
+            OnMiss?.Invoke();
         }
 
         private IEnumerator MoveSlider() {

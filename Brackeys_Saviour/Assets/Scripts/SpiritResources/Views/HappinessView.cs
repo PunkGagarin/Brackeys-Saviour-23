@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SpiritResources.ResourceModels;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace SpiritResources {
@@ -13,7 +14,7 @@ namespace SpiritResources {
         [SerializeField]
         private Image _happinessImage;
 
-        public override void UpdateResourceUI(int newNumber, int diffNumber) {
+        public override void UpdateResourceUI(BaseResource resource, int newNumber, int diffNumber) {
             _slider.value = newNumber;
         }
 

@@ -1,21 +1,26 @@
 ﻿using System;
 using UnityEngine;
 
-namespace SpiritResources {
+namespace SpiritResources.ResourceModels {
 
     [Serializable]
     public abstract class BaseResource {
 
-        public Action<int, int> OnValueChange = delegate { };
-
+        public Action<BaseResource, int, int> OnValueChange = delegate { };
+        
+        [SerializeField]
+        protected int _initCount;
+        
         [SerializeField]
         protected int _resourceCount;
 
-        [SerializeField]
-        protected int _maxRes;
+        [field: SerializeField]
+        public int maxRes { get; set; }
 
-        [SerializeField]
-        protected SpiritResourceType _type;
+        [field: SerializeField]
+        public SpiritResourceType type { get; protected set; }
+
+        public int minValue { get; set; }
 
         public bool IsEnough(int number) {
             return _resourceCount >= number;
@@ -23,7 +28,7 @@ namespace SpiritResources {
 
         public void AddResource(int number) {
             _resourceCount += number;
-            OnValueChange.Invoke(_resourceCount, number);
+            OnValueChange.Invoke(this, _resourceCount, number);
         }
 
         public int GetCurrentResource() {
@@ -32,7 +37,7 @@ namespace SpiritResources {
 
         public void IncrementResource() {
             _resourceCount++;
-            OnValueChange.Invoke(_resourceCount, 1);
+            OnValueChange.Invoke(this, _resourceCount, 1);
             // UpdateUI();
         }
 
@@ -41,8 +46,12 @@ namespace SpiritResources {
                 Debug.LogException(new Exception("Trying to take resource while it is not enough!"));
             }
             _resourceCount -= number;
-            OnValueChange.Invoke(_resourceCount, number);
+            OnValueChange.Invoke(this, _resourceCount, number);
             // UpdateUI();
+        }
+
+        public int GetInitResource() {
+            return _initCount;
         }
     }
 

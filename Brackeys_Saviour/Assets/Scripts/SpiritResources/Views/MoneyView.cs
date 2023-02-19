@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using SpiritResources.ResourceModels;
+using TMPro;
 using UnityEngine;
 
 namespace SpiritResources {
@@ -8,7 +9,7 @@ namespace SpiritResources {
         [SerializeField]
         private TextMeshProUGUI _text;
         
-        public override void UpdateResourceUI(int newNumber, int different) {
+        public override void UpdateResourceUI(BaseResource resource, int newNumber, int different) {
             _text.text = newNumber.ToString();
         }
 

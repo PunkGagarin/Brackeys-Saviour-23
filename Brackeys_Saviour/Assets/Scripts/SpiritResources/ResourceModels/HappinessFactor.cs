@@ -1,11 +1,13 @@
-﻿namespace SpiritResources {
+﻿namespace SpiritResources.ResourceModels {
 
     public class HappinessFactor : BaseResource {
 
-        public HappinessFactor(int startHappiness, int maxHap, SpiritResourceType type) {
-            _maxRes = maxHap;
+        public HappinessFactor(int startHappiness, int maxHap, int minValue, SpiritResourceType type) {
+            maxRes = maxHap;
             _resourceCount = startHappiness;
-            _type = type;
+            _initCount = startHappiness;
+            base.type = type;
+            this.minValue = minValue;
         }
     }
 

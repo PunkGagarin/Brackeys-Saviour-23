@@ -1,4 +1,5 @@
 ﻿using System;
+using SpiritResources.ResourceModels;
 using UI;
 using UnityEngine;
 
@@ -7,10 +8,12 @@ namespace SpiritResources {
     [Serializable]
     public class SpiritResource : BaseResource {
 
-        public SpiritResource(int startValue, int maxValue, SpiritResourceType type) {
-            _type = type;
+        public SpiritResource(int startValue, int maxValue, int minValue, SpiritResourceType type) {
+            base.type = type;
             _resourceCount = startValue;
-            _maxRes = maxValue;
+            _initCount = startValue;
+            maxRes = maxValue;
+            this.minValue = minValue;
         }
     }
 

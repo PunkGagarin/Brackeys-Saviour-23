@@ -1,5 +1,7 @@
-﻿using Events.Pools;
+﻿using System;
+using Events.Pools;
 using Events.UI;
+using SpiritResources;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -11,6 +13,8 @@ namespace Events {
         private bool _isTimerGoing;
 
         private Camera _mainCam;
+
+        private int _currentEventCount;
 
         [Inject]
         private BasePoolImpl _gameEventPool;
@@ -33,6 +37,12 @@ namespace Events {
         [SerializeField]
         private float _spawnPopupBorderSize = 100f;
 
+        [SerializeField]
+        private int _maxEventCount;
+
+
+        public Action OnMaxValueReach = delegate { };
+
         private void Awake() {
             _mainCam = Camera.main;
             _gameEventPool.InitPool();
@@ -41,7 +51,7 @@ namespace Events {
 
         private void Start() {
             _eventPopup.button.onClick.AddListener(RegisterEvent);
-            _eventView.OnEventFinished += ResumeTimer;
+            _eventView.OnEventFinished += Resume;
         }
 
         private void Update() {
@@ -55,8 +65,13 @@ namespace Events {
             }
         }
 
-        private void ResumeTimer() {
-            _isTimerGoing = true;
+        private void Resume() {
+            _currentEventCount++;
+            if (_currentEventCount >= _maxEventCount) {
+                OnMaxValueReach.Invoke();
+            } else {
+                _isTimerGoing = true;
+            }
         }
 
         private void ShowRandomPopup() {
@@ -67,9 +82,9 @@ namespace Events {
         }
 
         private void MovePopup() {
-            var v3Rnd = new Vector3(Random.Range(0 + _spawnPopupBorderSize, Screen.width - _spawnPopupBorderSize), 
-                Random.Range(0+ _spawnPopupBorderSize, Screen.height - _spawnPopupBorderSize * 1.5f), 14);
-            
+            var v3Rnd = new Vector3(Random.Range(0 + _spawnPopupBorderSize, Screen.width - _spawnPopupBorderSize),
+                Random.Range(0 + _spawnPopupBorderSize, Screen.height - _spawnPopupBorderSize * 1.5f), 14);
+
             var newPos = _mainCam.ScreenToWorldPoint(v3Rnd);
             newPos.z = 14;
 
@@ -89,7 +104,7 @@ namespace Events {
             _eventView.HandleStory(textStory);
         }
 
-        private void StopTimer() {
+        public void StopTimer() {
             _isTimerGoing = false;
         }
 
@@ -97,6 +112,7 @@ namespace Events {
             var stories = UnityEngine.Resources.LoadAll<TextAsset>("Stories");
             return stories[Random.Range(0, stories.Length)];
         }
+
     }
 
 }

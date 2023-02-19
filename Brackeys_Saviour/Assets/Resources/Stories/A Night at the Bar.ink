@@ -14,7 +14,7 @@ You and the patron start chatting, and you find out that he's a musician who's h
 
 * [Offer to comp the patron's next drink.]# Happiness: +1 # Money: -1
 -> CompDrink
-* [Bid the patron farewell.] 
+* [Bid the patron farewell.]
 -> DONE
 
 == Drink ==
@@ -22,7 +22,7 @@ You make the patron's drink, and he takes a long sip. A smile breaks out on his 
 
 * [Offer to make another drink.]# Happiness: +1 # Money: -1
 -> Drink
-* [Bid the patron farewell.] 
+* [Bid the patron farewell.]
 -> DONE
 
 == Peanuts ==
@@ -30,15 +30,15 @@ You offer the patron a bowl of peanuts, and he happily munches on them as he sip
 
 * [Offer to buy the patron another snack.]# Happiness: +1 # Money: -2
 -> Snack
-* [Bid the patron farewell.] 
+* [Bid the patron farewell.]
 -> DONE
 
 == CompDrink ==
 The patron is surprised but pleased by your offer to comp his next drink, and he orders another round.
 
-* [Chat with the patron some more.]# Friendship: +1 
+* [Chat with the patron some more.]# Happiness: +1
 -> Conversation
-* [Bid the patron farewell.] 
+* [Bid the patron farewell.]
 -> DONE
 
 == Snack ==
@@ -46,7 +46,7 @@ The patron accepts your offer of another snack and picks out a bag of chips. He 
 
 * [Offer to buy the patron another drink.]# Happiness: +1 # Money: -1
 -> Drink
-* [Bid the patron farewell.] 
+* [Bid the patron farewell.]
 -> DONE
 
 -> END

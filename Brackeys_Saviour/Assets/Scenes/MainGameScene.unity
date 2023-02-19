@@ -273,7 +273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &25577234
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1544,6 +1544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5153516e2371a3d46ac1d0274bf0a4f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moneyView: {fileID: 0}
+  _volunteersView: {fileID: 0}
   _happinessView: {fileID: 0}
 --- !u!1 &447376676
 GameObject:
@@ -2476,7 +2478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d4bd31fb37a614c9c55f9872d0ef52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sliderArrow: {fileID: 2041757840}
+  _sliderArrow: {fileID: 0}
   _sliderSpeed: 2
   _startGameButton: {fileID: 1176589332}
   _pickButton: {fileID: 789836108}
@@ -5067,7 +5069,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -6.500001}
   m_SizeDelta: {x: 51, y: 29}
   m_Pivot: {x: 0.5, y: 0.5}

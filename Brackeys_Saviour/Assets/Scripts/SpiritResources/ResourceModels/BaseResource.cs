@@ -6,10 +6,14 @@ namespace SpiritResources {
     [Serializable]
     public abstract class BaseResource {
 
+        public Action<int, int> OnValueChange = delegate { };
+
         [SerializeField]
         protected int _resourceCount;
-        
-        
+
+        [SerializeField]
+        protected int _maxRes;
+
         [SerializeField]
         protected SpiritResourceType _type;
 
@@ -19,23 +23,27 @@ namespace SpiritResources {
 
         public void AddResource(int number) {
             _resourceCount += number;
-            UpdateUI();
+            OnValueChange.Invoke(_resourceCount, number);
+        }
+
+        public int GetCurrentResource() {
+            return _resourceCount;
         }
 
         public void IncrementResource() {
             _resourceCount++;
-            UpdateUI();
+            OnValueChange.Invoke(_resourceCount, 1);
+            // UpdateUI();
         }
 
-        public void TakeResource(int number) {
+        public void RemoveResource(int number) {
             if (!IsEnough(number)) {
                 Debug.LogException(new Exception("Trying to take resource while it is not enough!"));
             }
             _resourceCount -= number;
-            UpdateUI();
+            OnValueChange.Invoke(_resourceCount, number);
+            // UpdateUI();
         }
-
-        protected abstract void UpdateUI();
     }
 
 }

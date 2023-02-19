@@ -17,7 +17,7 @@ namespace UI {
 
       private void Start() {
          _startGameButton.onClick.AddListener(() => {
-            _audioManager.PlayButtonSound();
+            _audioManager.PlayEffectSound("snd_ui_click");
             _sceneLoader.Load(1);
          });
       }

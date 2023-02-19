@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Audio;
 using Events.UI;
 using ModestTree;
 using SpiritResources.ResourceModels;
@@ -16,6 +17,9 @@ namespace SpiritResources {
 
         [Inject]
         private GameEventUI _eventView;
+
+        [Inject]
+        private AudioManager _audioManager;
 
         [SerializeField]
         private MoneyView _moneyView;
@@ -63,6 +67,11 @@ namespace SpiritResources {
         }
 
         private void HandleResourceChange(SpiritResourceType type, int value) {
+
+            if (type == SpiritResourceType.Money) {
+                _audioManager.PlayEffectSound("snd_ui_coins");
+            }
+                
             //due to specific ink work we can have -10 or 10, so in both ways we can call only Add func
             AddResource(type, value);
         }
@@ -76,6 +85,11 @@ namespace SpiritResources {
         }
 
         public void AddResource(SpiritResourceType type, int number) {
+            if (number > 0) {
+                _audioManager.PlayEffectSound("snd_ui_mood_uplift_new");
+            } else {
+                _audioManager.PlayEffectSound("snd_ui_mood_downshift_new");
+            }
             _resources[type].AddResource(number);
         }
 

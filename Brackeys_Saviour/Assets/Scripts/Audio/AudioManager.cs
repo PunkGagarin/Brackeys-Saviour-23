@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ namespace Audio {
         private AudioClip _bgSound;
         
         [SerializeField] 
-        private AudioClip _btnSound;
+        private List<AudioClip> _soundsEffect;
 
         private void Start() {
             PlayBgSound();
@@ -51,9 +52,14 @@ namespace Audio {
             //_soundEffectAudioSource.Play();
         }
         
-        public void PlayButtonSound() {
-            _soundEffectAudioSource.clip = _btnSound;
-            _soundEffectAudioSource.Play();
+        public void PlayEffectSound(string name) {
+            foreach (var sound in _soundsEffect) {
+                if (sound.name == name) {
+                    _soundEffectAudioSource.clip = sound;
+                    _soundEffectAudioSource.Play();
+                    return;
+                }
+            }
         }
     }
 }

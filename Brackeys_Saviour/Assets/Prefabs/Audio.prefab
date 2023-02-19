@@ -50,7 +50,17 @@ MonoBehaviour:
   _soundEffectAudioSource: {fileID: 7923088851269324365}
   _volumeSlider: {fileID: 0}
   _bgSound: {fileID: 8300000, guid: dbccdba51a6724029ac465f8d525fadb, type: 3}
-  _btnSound: {fileID: 8300000, guid: 9ac3e73e1a30f4857a44d982714bde8c, type: 3}
+  _soundsEffect:
+  - {fileID: 8300000, guid: ab926c818479c4bbdbc39e811dce4361, type: 3}
+  - {fileID: 8300000, guid: d1c12158e1a094dbdbfdf3de3568a7e2, type: 3}
+  - {fileID: 8300000, guid: 4cfd276d518664b5a9ea82061877a82e, type: 3}
+  - {fileID: 8300000, guid: b65ae496f67b24fd7a0e522351b31f3e, type: 3}
+  - {fileID: 8300000, guid: 9ac3e73e1a30f4857a44d982714bde8c, type: 3}
+  - {fileID: 8300000, guid: 71280c30d64a54e87b6de4c02749596d, type: 3}
+  - {fileID: 8300000, guid: e850e75cee15349a19aca93389fdab8e, type: 3}
+  - {fileID: 8300000, guid: 07a9120183b8d44c688b4a82f0c6070d, type: 3}
+  - {fileID: 8300000, guid: 6aa4ad8152ec1450483d5c9f0c685f61, type: 3}
+  - {fileID: 8300000, guid: d29931102c96144b586b5fe3ea57ebd6, type: 3}
 --- !u!82 &7923088851269324364
 AudioSource:
   m_ObjectHideFlags: 0

@@ -71,8 +71,6 @@ public class EndGameView : ContentUI {
     public void ShowEventEnding(int happyCount, int volunteersCount, int initHappiness) {
         ShowContent();
         if (happyCount > initHappiness) {
-            Debug.Log("init: " + initHappiness);
-            Debug.Log("current: " + happyCount);
             ShowDefaultGood(happyCount, volunteersCount);
         } else {
             ShowDefaultBad(happyCount, volunteersCount);

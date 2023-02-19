@@ -48,7 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bgAudioSource: {fileID: 7923088851269324364}
   _soundEffectAudioSource: {fileID: 7923088851269324365}
+  _volumeSlider: {fileID: 0}
   _bgSound: {fileID: 8300000, guid: dbccdba51a6724029ac465f8d525fadb, type: 3}
+  _btnSound: {fileID: 8300000, guid: 9ac3e73e1a30f4857a44d982714bde8c, type: 3}
 --- !u!82 &7923088851269324364
 AudioSource:
   m_ObjectHideFlags: 0

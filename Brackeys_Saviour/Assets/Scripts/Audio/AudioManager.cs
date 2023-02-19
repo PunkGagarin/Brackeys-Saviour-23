@@ -10,20 +10,26 @@ namespace Audio {
         private AudioSource _soundEffectAudioSource;
 
         [SerializeField] 
-        private AudioClip _bgSound;
-
-        [SerializeField] 
         private Slider _volumeSlider;
+        
+        [SerializeField] 
+        private AudioClip _bgSound;
+        
+        [SerializeField] 
+        private AudioClip _btnSound;
 
         private void Start() {
             PlayBgSound();
-
-            _volumeSlider.onValueChanged.AddListener(ChangeVolume);
 
             if (PlayerPrefs.HasKey("volume")) {
                 var volume = PlayerPrefs.GetFloat("volume");
                 _bgAudioSource.volume = volume;
                 _soundEffectAudioSource.volume = volume;
+            }
+            
+            if (_volumeSlider != null) {
+                _volumeSlider.onValueChanged.AddListener(ChangeVolume);
+                _volumeSlider.value = _bgAudioSource.volume;
             }
         }
 
@@ -45,5 +51,9 @@ namespace Audio {
             //_soundEffectAudioSource.Play();
         }
         
+        public void PlayButtonSound() {
+            _soundEffectAudioSource.clip = _btnSound;
+            _soundEffectAudioSource.Play();
+        }
     }
 }

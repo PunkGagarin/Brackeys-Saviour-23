@@ -2,28 +2,34 @@
 
 You find yourself on a path in the woods. The sun is shining and the birds are singing. What do you do?
 
-* [Continue down the path] -> Continue
-* [Explore off the path] -> Explore
+* [Continue down the path]
+-> Continue
+* [Explore off the path]
+-> Explore
 
 === Continue ===
 As you continue down the path, you notice a rustling in the bushes. What do you do?
 
-* [Approach the bushes] -> Approach
-* [Keep walking] -> KeepWalking
+* [Approach the bushes]
+-> Approach
+* [Keep walking]
+-> KeepWalking
 
 === Explore ===
 As you venture off the path, you stumble upon a hidden pond. What do you do?
 
-* [Take a closer look] -> Look
-* [Skip rocks] -> Skip
+* [Take a closer look]
+-> Look
+* [Skip rocks]
+-> Skip
 
 === Approach ===
 As you get closer to the bushes, you see a small, injured bird. What do you do?
 
-* [Help the bird] -> Help
-* [Leave it alone] -> Leave
-
-# MiniGame: Breathe
+* [Help the bird]
+-> Help
+* [Leave it alone]
+-> Leave
 
 === KeepWalking ===
 You continue down the path, and eventually reach a beautiful waterfall. # Happiness: +2

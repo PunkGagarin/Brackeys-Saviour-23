@@ -2015,11 +2015,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventPopup: {fileID: 1259072698}
-  _currentEventTimer: 20
+  _currentEventTimer: 10
   _eventTimeMin: 10
   _eventTimeMax: 15
   _spawnPopupBorderSize: 100
-  _maxEventCount: 20
+  _maxEventCount: 15
 --- !u!114 &417421928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4032,7 +4032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2fb11f2368d6b4ea52d5864b4e8160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
 --- !u!1 &974904253
 GameObject:
   m_ObjectHideFlags: 0

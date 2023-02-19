@@ -43,9 +43,9 @@ namespace SpiritResources {
             _views.Add(SpiritResourceType.Volunteers, _volunteersView);
             _views.Add(SpiritResourceType.Happiness, _happinessView);
 
-            _resources.Add(SpiritResourceType.Money, new SpiritResource(20, 10000, -50, SpiritResourceType.Money));
+            _resources.Add(SpiritResourceType.Money, new SpiritResource(30, 10000, -50, SpiritResourceType.Money));
             _resources.Add(SpiritResourceType.Volunteers, new SpiritResource(4, 10, -5, SpiritResourceType.Volunteers));
-            _resources.Add(SpiritResourceType.Happiness, new HappinessFactor(35, 100, 0, SpiritResourceType.Happiness));
+            _resources.Add(SpiritResourceType.Happiness, new HappinessFactor(15, 60, 0, SpiritResourceType.Happiness));
 
             Assert.IsEqual(_resources.Count, _views.Count, "Not equal resource-view count!!!");
 

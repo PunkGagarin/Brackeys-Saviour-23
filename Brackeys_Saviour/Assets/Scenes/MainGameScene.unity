@@ -2016,10 +2016,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventPopup: {fileID: 1259072698}
   _currentEventTimer: 7
-  _eventTimeMin: 10
-  _eventTimeMax: 15
+  _eventTimeMin: 2
+  _eventTimeMax: 6
   _spawnPopupBorderSize: 100
-  _maxEventCount: 15
+  _maxEventCount: 11
 --- !u!114 &417421928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5888,9 +5888,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 60
   m_WholeNumbers: 1
-  m_Value: 34
+  m_Value: 60
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

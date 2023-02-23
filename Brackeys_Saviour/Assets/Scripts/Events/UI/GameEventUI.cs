@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Ink.Runtime;
@@ -34,6 +35,9 @@ namespace Events.UI {
 
         [SerializeField]
         private TextMeshProUGUI _mainStoryText;
+
+        [SerializeField]
+        private TextMeshProUGUI _addResourcesText;
 
         [SerializeField]
         private TextMeshProUGUI _headerText;
@@ -145,6 +149,14 @@ namespace Events.UI {
             _eventImage.sprite = EventImageFactory.GetProperImageForStory(_headerText.text);
         }
 
+        private IEnumerator ShowRes(string text) {
+            yield return new WaitForSeconds(2f);
+            _addResourcesText.gameObject.SetActive(true);
+            _addResourcesText.text = text;
+            yield return new WaitForSeconds(2f);
+            _addResourcesText.gameObject.SetActive(false);
+        }
+
         private void ContinueStory() {
             _currentTimer = _timeToDecide;
 
@@ -172,17 +184,21 @@ namespace Events.UI {
                     case MoneyTag:
                         HandleTagChange(SpiritResourceType.Money, int.Parse(tagValue));
                         Debug.Log("Money game tag: " + tagValue);
+                        StartCoroutine(ShowRes("Money game tag: " + tagValue));
                         break;
                     case VolunteersTag:
                         Debug.Log("Volunteers game tag : " + tagValue);
+                        StartCoroutine(ShowRes("Volunteers game tag : " + tagValue));
                         HandleTagChange(SpiritResourceType.Volunteers, int.Parse(tagValue));
                         break;
                     case "Volunteer":
                         Debug.Log("Volunteers game tag : " + tagValue);
+                        StartCoroutine(ShowRes("Volunteers game tag : " + tagValue));
                         HandleTagChange(SpiritResourceType.Volunteers, int.Parse(tagValue));
                         break;
                     case HappinessTag:
                         Debug.Log("Happiness game tag : " + tagValue);
+                        StartCoroutine(ShowRes("Happiness game tag : " + tagValue));
                         HandleTagChange(SpiritResourceType.Happiness, int.Parse(tagValue));
                         break;
                     case MiniGameTag:

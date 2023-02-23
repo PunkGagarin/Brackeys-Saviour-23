@@ -1,11 +1,16 @@
 ﻿using System;
+using Audio;
 using UnityEngine;
+using Zenject;
 
 namespace SpiritResources.ResourceModels {
 
     [Serializable]
     public abstract class BaseResource {
 
+        [Inject] 
+        private AudioManager _audioManager;
+        
         public Action<BaseResource, int, int> OnValueChange = delegate { };
         
         [SerializeField]

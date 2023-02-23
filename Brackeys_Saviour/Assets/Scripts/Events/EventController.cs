@@ -1,4 +1,5 @@
 ﻿using System;
+using Audio;
 using Events.Pools;
 using Events.UI;
 using SpiritResources;
@@ -18,6 +19,9 @@ namespace Events {
 
         [Inject]
         private BasePoolImpl _gameEventPool;
+
+        [Inject]
+        private AudioManager _audioManager;
 
         [Inject]
         private GameEventUI _eventView;
@@ -75,6 +79,8 @@ namespace Events {
         }
 
         private void ShowRandomPopup() {
+            
+            _audioManager.PlayEffectSound("snd_ui_quest_notification");
             StopTimer();
             //MovePopupToRandom
             _eventPopup.gameObject.SetActive(true);
